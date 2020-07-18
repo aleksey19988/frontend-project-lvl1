@@ -21,6 +21,7 @@
   },
   "homepage": "https://github.com/aleksey19988/frontend-project-lvl1#readme",
   "dependencies": {
+    "readline-sync": "^1.4.10",
     "ws": "^7.3.1"
   }
 }
