@@ -1,0 +1,6 @@
+rules:
+  import/extensions: 0
+  no-console: off
+parserOptions:
+  sourceType: module
+  ecmaVersion: 2015

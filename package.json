@@ -21,6 +21,9 @@
   },
   "homepage": "https://github.com/aleksey19988/frontend-project-lvl1#readme",
   "dependencies": {
+    "eslint": "^7.4.0",
+    "eslint-config-airbnb-base": "^14.2.0",
+    "eslint-plugin-import": "^2.22.0",
     "readline-sync": "^1.4.10",
     "ws": "^7.3.1"
   }
