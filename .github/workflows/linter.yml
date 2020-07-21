@@ -12,17 +12,13 @@ on:
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  git clone:
+  git_clone:
     runs-on: ubuntu-latest
     
     steps:
-      - name: Git clone repo
-        uses: actions/checkout@v1
-  
-  linter:
-    runs-on: ubuntu-latest
-    
-    steps:
-      - name: lint
-        run: make lint
+    - name: Git clone my repo
+      uses: actions/checkout@v1
+      
+    - name: lint
+      run: make lint
 
