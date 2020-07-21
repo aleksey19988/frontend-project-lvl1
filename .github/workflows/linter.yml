@@ -16,13 +16,13 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
-      name: Git clone repo
+      - name: Git clone repo
       uses: actions/checkout@v1
   
   linter:
     runs-on: ubuntu-latest
     
     steps:
-      name: lint
+      - name: lint
       run: make lint
 
