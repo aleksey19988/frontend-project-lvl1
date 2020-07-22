@@ -25,7 +25,7 @@ while (allAnswers <= 3) {
                 return `Your answer: `;
             }
         }
-    });//Функция для добавления в начало вопроса фразы 'Your answer', т.к. по дефолту идёт символ '>'
+    });//Функция для добавления в начало ответа фразы 'Your answer', т.к. по дефолту идёт символ '>'
     const input = (readlineSync.prompt());//Клиент вводит ответ
     if (Number(input) === correctAnswer) {
         allAnswers+=1;
