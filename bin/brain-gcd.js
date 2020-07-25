@@ -1,8 +1,8 @@
 #!/usr/bin/env node
 
 import { clientName, userName } from '../src/cli.js';//Испорт для приветствия
-import readlineSync from 'readline-sync';//испорт для получения ввода от пользователя
-import  _ from 'lodash';//Испорт для отброса повторяющихся делителей
+import readlineSync from 'readline-sync';//Импорт для получения ввода от пользователя
+import  _ from 'lodash';//Импорт для отброса повторяющихся делителей
 
 console.log(`Welcome to the Brain Games!`);
 clientName();
