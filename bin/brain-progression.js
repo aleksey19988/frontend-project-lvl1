@@ -22,8 +22,6 @@ while (allAnswers <= 3) {
         return  Math.floor(Math.random() * (max - min) + min);
     };//Функция для получения числа из массива
     const isResultingNum = arrOfNum[getNum(0, arrOfNum.length)];//Получаем число, которое должен найти пользователь
-    console.log(`Искомое число ${isResultingNum}`);
-    // const correctAnswer = isResultingNum;//Правильный ответ
     const getNewArr = () => {
         const indexNumInArr = arrOfNum.indexOf(isResultingNum);
         arrOfNum[indexNumInArr] = '..';
