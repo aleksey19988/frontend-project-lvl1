@@ -28,6 +28,7 @@ while (allAnswers <= 3) {
             }
         }
     });//Функция для добавления в начало ответа фразы 'Your answer', т.к. по дефолту идёт символ '>'
+    console.log(`Правильный ответ (для записи аскинемы): ${correctAnswer}`);
     const input = (readlineSync.prompt());//Клиент вводит ответ
     console.log(`Question: ${requierdNum}`);//Спрашиваем простое ли число
     if (input === correctAnswer) {
