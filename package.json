@@ -9,11 +9,11 @@
   },
   "bin": {
     "brain-games": "bin/brain-games.js",
-    "brain-even": "games/brain-even.js",
-    "brain-calc": "games/brain-calc.js",
-    "brain-gcd": "games/brain-gcd.js",
-    "brain-progression": "games/brain-progression.js",
-    "brain-prime": "games/brain-prime.js"
+    "brain-even": "bin/brain-even-run.js",
+    "brain-calc": "bin/brain-calc-run.js",
+    "brain-gcd": "bin/brain-gcd-run.js",
+    "brain-progression": "bin/brain-progression-run.js",
+    "brain-prime": "bin/brain-prime-run.js"
   },
   "repository": {
     "type": "git",

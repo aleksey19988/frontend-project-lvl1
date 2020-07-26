@@ -2,5 +2,8 @@
 
 import { clientName } from '../src/cli.js';
 
-console.log('Welcome to the Brain Games!');
-console.log(clientName());
+export const greeting = () => {
+    console.log('Welcome to the Brain Games!');
+    let userName = clientName();
+    return userName;
+}
