@@ -15,6 +15,4 @@ brain-progression:
 publish:
 	npm publish --dry-run
 lint:
-	npm install eslint --save-dev
-	npx install-peerdeps --dev eslint-config-airbnb-base
 	npx eslint .
