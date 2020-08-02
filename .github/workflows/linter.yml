@@ -19,7 +19,7 @@ jobs:
     - name: Git clone my repo
       uses: actions/checkout@v1
       
-    - name: install airbnb
+    - name: install airbnb 
       run: npx install-peerdeps --dev eslint-config-airbnb-base
       
     - name: lint
