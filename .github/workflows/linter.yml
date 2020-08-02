@@ -20,7 +20,7 @@ jobs:
       uses: actions/checkout@v1
       
     - name: install airbnb 
-      run: npx install-peerdeps --dev eslint-config-airbnb-base
+      run: make install
       
     - name: lint
       run: make lint
