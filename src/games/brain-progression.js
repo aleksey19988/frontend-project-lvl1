@@ -2,11 +2,11 @@ import readlineSync from 'readline-sync';
 import greeting from '../../bin/brain-games-run.js';
 
 const brainProgressionGame = () => {
-  const name = greeting();
+  const name = greeting;
   console.log('What number is missing in the progression?');
-  let allAnswers = 0;
 
-  while (allAnswers <= 3) {
+  const generateRound = () => {
+    const roundDate = {};
     const arrOfNum = [];// Массив чисел
     let firstNumInArr = Math.floor(Math.random() * 100);/* Первое число для массива
     (чтобы каждый раз массив был с новыми числами) */
@@ -17,28 +17,41 @@ const brainProgressionGame = () => {
     }// Цикл для образования массива
     const getNum = (min, max) => Math.floor(Math.random() * (max - min) + min);/* Функция для
     получения числа из массива */
-    const isResultingNum = arrOfNum[getNum(0, arrOfNum.length)];/* Получаем число, которое должен
-    найти пользователь */
+    roundDate.isResultingNum = arrOfNum[getNum(0, arrOfNum.length)];/* Получаем число, которое
+    должен найти пользователь */
     const getNewArr = () => {
-      const indexNumInArr = arrOfNum.indexOf(isResultingNum);
+      const indexNumInArr = arrOfNum.indexOf(roundDate.isResultingNum);
       arrOfNum[indexNumInArr] = '..';
       return arrOfNum.join(', ');
     };// Функция для замены числа на две точки
-    console.log(`Question: ${getNewArr()}`);
-    const result = (readlineSync.question('Your answer: '));// Получаем от клиента ответ
-    if (Number(result) === isResultingNum) {
-      allAnswers += 1;
-      console.log('Correct!');
-    } else {
-      console.log(`"${result}" is wrong answer ;(. Correct answer was "${isResultingNum}".`);
-      console.log(`Let's try again, ${name}!`);
-      break;
+    roundDate.numbers = getNewArr();
+    console.log(roundDate);
+    return roundDate;
+  };// Функция для генерации данных раунда (списка чисел и правильного ответа)
+
+  const gamePlaying = () => {
+    let allAnswers = true;
+    for (let i = 0; i < 3; i += 1) {
+      const round = generateRound();
+      console.log(`Question: ${round.numbers}`);
+      const result = (readlineSync.question('Your answer: '));// Получаем от клиента ответ
+      if (Number(result) === round.isResultingNum) {
+        console.log('Correct!');
+      } else {
+        allAnswers = false;
+        console.log(`"${result}" is wrong answer ;(. Correct answer was "${round.isResultingNum}".`);
+        console.log(`Let's try again, ${name}!`);
+        break;
+      }
     }
-    if (allAnswers === 3) {
+    if (allAnswers) {
       console.log(`Congratulations, ${name}!`);
-      break;
     }
-  }
+  };
+
+  gamePlaying();
 };
+
+brainProgressionGame();
 
 export default brainProgressionGame;
