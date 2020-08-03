@@ -4,6 +4,10 @@ import greeting from '../../bin/brain-games-run.js';
 const brainCalcGame = () => {
   const name = greeting;
   console.log('What is the result of the expression?');
+<<<<<<< HEAD
+=======
+  let allAnswersCorrect = true;// Предполагаем, что все ответы будут правильными
+>>>>>>> df1397c7b86af033cf3b590bbd3b4ded480b74e2
 
   const generateRound = () => {
     const roundData = {};
@@ -24,6 +28,7 @@ const brainCalcGame = () => {
     return roundData;
   };// Функция для генерации данных раунда (операндов и правильного ответа)
 
+<<<<<<< HEAD
   const gamePlaying = () => {
     let allAnswersCorrect = true;// Предполагаем, что все ответы будут правильными
     for (let i = 0; i < 3; i += 1) {
@@ -38,6 +43,19 @@ const brainCalcGame = () => {
         console.log(`Let's try again, ${name}!`);
         break;
       }
+=======
+  for (let i = 0; i < 3; i += 1) {
+    const round = generateRound();
+    console.log(`Question: ${round.firstNum} ${round.operator} ${round.secondNum}`);// Вопрос для клиента
+    const result = (readlineSync.question('Your answer: '));// Получаем от клиента ответ
+    if (result === toString(round.correctAnswer)) {
+      console.log('Correct!');
+    } else {
+      allAnswersCorrect = false;
+      console.log(`"${result}" is wrong answer ;(. Correct answer was "${round.correctAnswer}".`);
+      console.log(`Let's try again, ${name}!`);
+      break;
+>>>>>>> df1397c7b86af033cf3b590bbd3b4ded480b74e2
     }
     if (allAnswersCorrect) {
       console.log(`Congratulations, ${name}!`);
