@@ -1,4 +1,5 @@
 #!/usr/bin/env node
-import brainPrimeGame from '../src/games/brain-prime.js';
+import gamePlaying from '../src/games/run-game.js';
+import generateRoundBrainPrime from '../src/games/brain-prime.js';
 
-brainPrimeGame();
+gamePlaying(generateRoundBrainPrime(), 'Answer "yes" if given number is prime. Otherwise answer "no".');

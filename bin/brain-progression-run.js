@@ -1,4 +1,5 @@
 #!/usr/bin/env node
-import brainProgressionGame from '../src/games/brain-progression.js';
+import gamePlaying from '../src/games/run-game.js';
+import generateRoundBrainProgression from '../src/games/brain-progression.js';
 
-brainProgressionGame();
+gamePlaying(generateRoundBrainProgression(), 'What number is missing in the progression?');

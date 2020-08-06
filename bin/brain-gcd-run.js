@@ -1,4 +1,5 @@
 #!/usr/bin/env node
-import brainGcdGame from '../src/games/brain-gcd.js';
+import gamePlaying from '../src/games/run-game.js';
+import generateRoundBrainGcd from '../src/games/brain-gcd.js';
 
-brainGcdGame();
+gamePlaying(generateRoundBrainGcd(), 'Find the greatest common divisor of given numbers.');

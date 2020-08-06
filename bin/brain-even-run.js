@@ -1,4 +1,5 @@
 #!/usr/bin/env node
-import brainEvenRun from '../src/games/brain-even.js';
+import gamePlaying from '../src/games/run-game.js';
+import generateRoundBrainEven from '../src/games/brain-even.js';
 
-brainEvenRun();
+gamePlaying(generateRoundBrainEven(), 'Answer "yes" if the number is even, otherwise answer "no".');

@@ -1,4 +1,5 @@
 #!/usr/bin/env node
-import brainCalcRun from '../src/games/brain-calc.js';
+import gamePlaying from '../src/games/run-game.js';
+import generateRoundBrainCalc from '../src/games/brain-calc.js';
 
-brainCalcRun();
+gamePlaying(generateRoundBrainCalc(), 'What is the result of the expression?');
