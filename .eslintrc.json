@@ -16,6 +16,8 @@
             "error", "always"
         ],
         "no-restricted-syntax": "off",
-        "no-loop-func": "off"
+        "no-loop-func": "off",
+        "max-len": "off",
+        "no-shadow": "off"
     }
 }
