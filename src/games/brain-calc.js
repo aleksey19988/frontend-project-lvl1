@@ -8,18 +8,22 @@ const generateRoundBrainCalc = () => {
     const getOperator = (min, max) => Math.floor(Math.random() * (max - min) + min);/* Функция для получения оператора */
     const operator = operations[getOperator(0, operations.length)];/* Записываем полученный оператор в переменную */
     round.question = `${firstNum} ${operator} ${secondNum}`;
-    if (operator === '+') {
-      round.correctAnswer = firstNum + secondNum;
-    } else if (operator === '-') {
-      round.correctAnswer = firstNum - secondNum;
-    } else {
-      round.correctAnswer = firstNum * secondNum;
+    switch (operator) {
+      case '+':
+        round.correctAnswer = firstNum + secondNum;
+        break;
+      case '-':
+        round.correctAnswer = firstNum - secondNum;
+        break;
+      case '*':
+        round.correctAnswer = firstNum * secondNum;
+        break;
+      default:
+        break;
     }
     roundData.push(round);
   }
   return roundData;
 };// Функция для генерации данных раунда (операндов и правильного ответа)
-
-generateRoundBrainCalc();
 
 export default generateRoundBrainCalc;
