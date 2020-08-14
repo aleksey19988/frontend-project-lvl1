@@ -1,7 +1,8 @@
-import _ from 'lodash';// Импорт для отброса повторяющихся делителей
+import { uniq } from 'lodash';// Импорт для отброса повторяющихся делителей
 
-const generateRoundBrainGcd = () => {
+const generateBrainGcd = () => {
   const roundData = [];
+  roundData.push('Find the greatest common divisor of given numbers.');
   for (let i = 0; i < 3; i += 1) {
     const round = {};
     const firstNum = Math.floor(Math.random() * 100);// Первое число
@@ -38,13 +39,12 @@ const generateRoundBrainGcd = () => {
       }
     }// Составляем список общих неповторяющихся делителей
 
-    const commonDivisorsNoDuplicates = _.uniq(commonDivisors);/* Убираем дубликаты из списка делителей */
+    const commonDivisorsNoDuplicates = uniq(commonDivisors);/* Убираем дубликаты из списка делителей */
     round.question = `${firstNum} ${secondNum}`;
-    round.correctAnswer = Math.max(...commonDivisorsNoDuplicates);/* Находим наибольший
-      делитель */
+    round.correctAnswer = String(Math.max(...commonDivisorsNoDuplicates));/* Находим наибольший делитель */
     roundData.push(round);
   }
   return roundData;
 };// Функция для генерации данных раунда (чисел и правильного ответа)
 
-export default generateRoundBrainGcd;
+export default generateBrainGcd;

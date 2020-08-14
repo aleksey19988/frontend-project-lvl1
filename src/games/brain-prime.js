@@ -1,5 +1,6 @@
-const generateRoundBrainPrime = () => {
+const generateBrainPrime = () => {
   const roundDate = [];
+  roundDate.push('Answer "yes" if given number is prime. Otherwise answer "no".');
   for (let i = 0; i < 3; i += 1) {
     const round = {};
     const question = Math.floor(Math.random() * 100);/* Получаем число для определения простое ли оно */
@@ -17,10 +18,10 @@ const generateRoundBrainPrime = () => {
     };// Функция для определения простое ли число
     isPrimeNumber(question);
     round.question = question;
-    round.correctAnswer = correctAnswer;
+    round.correctAnswer = String(correctAnswer);
     roundDate.push(round);
   }
   return roundDate;
 };// Функция для генерации данных раунда (чисел и правильного ответа)
 
-export default generateRoundBrainPrime;
+export default generateBrainPrime;

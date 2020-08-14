@@ -1,5 +1,6 @@
-const generateRoundBrainEven = () => {
+const generateBrainEven = () => {
   const roundData = [];
+  roundData.push('Answer "yes" if the number is even, otherwise answer "no".');
   for (let i = 0; i < 3; i += 1) {
     const round = {};
     round.question = Math.round(Math.random() * 100);// Получаем число от 0 до 99
@@ -10,4 +11,4 @@ const generateRoundBrainEven = () => {
   return roundData;
 };// Функция для генерации данных раунда (числа и правильного ответа)
 
-export default generateRoundBrainEven;
+export default generateBrainEven;
