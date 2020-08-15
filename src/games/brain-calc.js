@@ -1,4 +1,4 @@
-import { getCorrectAnswerFunc, getRandomNum } from '../tools.js';
+import { getRandomNum, getRandomElem } from '../tools.js';
 
 const generateBrainCalc = () => {
   const roundData = [];
@@ -8,7 +8,7 @@ const generateBrainCalc = () => {
     const operations = ['+', '-', '*'];// Операторы
     const firstNum = getRandomNum();// Первый операнд
     const secondNum = getRandomNum();// Второй операнд
-    const operator = getCorrectAnswerFunc(operations);
+    const operator = getRandomElem(operations);
     round.question = `${firstNum} ${operator} ${secondNum}`;
     switch (operator) {
       case '+':

@@ -1,12 +1,13 @@
 import { uniq } from 'lodash';// Импорт для отброса повторяющихся делителей
+import getRandomElem from '../tools.js';
 
 const generateBrainGcd = () => {
   const roundData = [];
   roundData.push('Find the greatest common divisor of given numbers.');
   for (let i = 0; i < 3; i += 1) {
     const round = {};
-    const firstNum = Math.floor(Math.random() * 100);// Первое число
-    const secondNum = Math.floor(Math.random() * 100);// Второе число
+    const firstNum = getRandomElem();// Первое число
+    const secondNum = getRandomElem();// Второе число
     const firstDivisors = [];// Делители первого числа
     const secondDivisors = [];// Делители второго числа
     const commonDivisors = [];// Общие делители
