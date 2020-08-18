@@ -6,7 +6,7 @@ export const getRandomElem = (collection) => {
   return randomElem;
 };
 
-export const getRandomNum = () => Math.round(Math.random() * 100);
+export const getRandomNum = () => Math.round(Math.random() * 100 + 1);
 
 // export default getRandomNum;
 
@@ -20,4 +20,14 @@ export const isPrimeNumber = (num) => {
     }
   }
   return 'yes';
+};
+
+export const findDivisors = (number) => {
+  const divisors = [];
+  for (let i = 1; i <= number; i += 1) {
+    if (number % i === 0) {
+      divisors.push(i);
+    }
+  }
+  return divisors;
 };

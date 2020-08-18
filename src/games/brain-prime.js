@@ -1,16 +1,19 @@
 import { getRandomNum, isPrimeNumber } from '../tools.js';
 
 const generateBrainPrime = () => {
-  const roundDate = [];
-  roundDate.push('Answer "yes" if given number is prime. Otherwise answer "no".');
+  const roundData = {
+    rules: 'Answer "yes" if given number is prime. Otherwise answer "no".',
+    rounds: [],
+  };
   for (let i = 0; i < 3; i += 1) {
     const round = {};
+
     const question = getRandomNum();/* Получаем число для определения простое ли оно */
     round.question = question;
     round.correctAnswer = String(isPrimeNumber(question));
-    roundDate.push(round);
+    roundData.rounds.push(round);
   }
-  return roundDate;
+  return roundData;
 };// Функция для генерации данных раунда (чисел и правильного ответа)
-console.log(generateBrainPrime());
+
 export default generateBrainPrime;

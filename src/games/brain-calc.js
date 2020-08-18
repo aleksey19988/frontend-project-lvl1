@@ -1,8 +1,10 @@
 import { getRandomNum, getRandomElem } from '../tools.js';
 
 const generateBrainCalc = () => {
-  const roundData = [];
-  roundData.push('What is the result of the expression?');
+  const roundData = {
+    rules: 'What is the result of the expression?',
+    rounds: [],
+  };
   for (let i = 0; i < 3; i += 1) {
     const round = {};
     const operations = ['+', '-', '*'];// Операторы
@@ -23,8 +25,9 @@ const generateBrainCalc = () => {
       default:
         break;
     }
-    roundData.push(round);
+    roundData.rounds.push(round);
   }
   return roundData;
 };// Функция для генерации данных раунда (операндов и правильного ответа)
+
 export default generateBrainCalc;

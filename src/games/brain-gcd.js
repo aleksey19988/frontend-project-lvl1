@@ -1,49 +1,32 @@
-import { uniq } from 'lodash';// Импорт для отброса повторяющихся делителей
-import getRandomElem from '../tools.js';
+import { getRandomNum, findDivisors } from '../tools.js';
 
 const generateBrainGcd = () => {
-  const roundData = [];
-  roundData.push('Find the greatest common divisor of given numbers.');
+  const roundData = {
+    rules: 'Find the greatest common divisor of given numbers.',
+    rounds: [],
+  };
   for (let i = 0; i < 3; i += 1) {
     const round = {};
-    const firstNum = getRandomElem();// Первое число
-    const secondNum = getRandomElem();// Второе число
-    const firstDivisors = [];// Делители первого числа
-    const secondDivisors = [];// Делители второго числа
-    const commonDivisors = [];// Общие делители
+    const firstNum = getRandomNum();// Первое число
+    const secondNum = getRandomNum();// Второе число
 
-    for (let i = 1; i <= firstNum; i += 1) {
-      if (firstNum % i === 0) {
-        firstDivisors.push(i);
-      }
-    }// Находим все делители первого числа
+    const getGreatestCommonDivisor = (firstNum, secondNum) => {
+      const firstDivisors = findDivisors(firstNum);// Делители первого числа
+      const secondDivisors = findDivisors(secondNum);// Делители второго числа
 
-    for (let i = 1; i <= secondNum; i += 1) {
-      if (secondNum % i === 0) {
-        secondDivisors.push(i);
-      }
-    }// Находим все делители второго числа
+      let commonDivisorsNoDuplicates = [];
+      if (firstNum < secondNum) {
+        commonDivisorsNoDuplicates = secondDivisors.filter((divisor) => firstDivisors.includes(divisor));
+      } else {
+        commonDivisorsNoDuplicates = firstDivisors.filter((divisor) => secondDivisors.includes(divisor));
+      }// Составляем список общих неповторяющихся делителей
 
-    if (firstNum < secondNum) {
-      for (const value of secondDivisors) {
-        if (firstDivisors.includes(value)) {
-          commonDivisors.push(value);/* Если в списке делителей первого числа
-            находим такие же у второго - добавляем в список общих делителей */
-        }
-      }
-    } else {
-      for (const value of firstDivisors) {
-        if (secondDivisors.includes(value)) {
-          commonDivisors.push(value);/* Если в списке делителей второго числа
-            находим такие же у первого - добавляем в список общих делителей */
-        }
-      }
-    }// Составляем список общих неповторяющихся делителей
+      return String(Math.max(...commonDivisorsNoDuplicates));
+    };
 
-    const commonDivisorsNoDuplicates = uniq(commonDivisors);/* Убираем дубликаты из списка делителей */
     round.question = `${firstNum} ${secondNum}`;
-    round.correctAnswer = String(Math.max(...commonDivisorsNoDuplicates));/* Находим наибольший делитель */
-    roundData.push(round);
+    round.correctAnswer = getGreatestCommonDivisor(firstNum, secondNum);/* Находим наибольший делитель */
+    roundData.rounds.push(round);
   }
   return roundData;
 };// Функция для генерации данных раунда (чисел и правильного ответа)
