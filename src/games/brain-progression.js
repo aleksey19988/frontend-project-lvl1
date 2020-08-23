@@ -1,11 +1,11 @@
-import { getRandomElem, getRandomNum } from '../tools.js';
+import { getRandomElem, getRandomNum, hideNumberInCollection } from '../tools.js';
 
 const generateBrainProgression = () => {
   const roundData = {
     rules: 'What number is missing in the progression?',
     rounds: [],
   };
-  // roundData.push('What number is missing in the progression?');
+
   for (let i = 0; i < 3; i += 1) {
     const round = {};
 
@@ -21,13 +21,7 @@ const generateBrainProgression = () => {
 
     const searchingElem = getRandomElem(numbers);
 
-    const getNewArr = () => {
-      const indexNumInArr = numbers.indexOf(searchingElem);
-      numbers[indexNumInArr] = '..';
-      return numbers;
-    };// Функция для замены числа на две точки
-
-    round.question = getNewArr().join(', ');
+    round.question = hideNumberInCollection(numbers, searchingElem).join(', ');
     round.correctAnswer = String(searchingElem);
     roundData.rounds.push(round);
   }

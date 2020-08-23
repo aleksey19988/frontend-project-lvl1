@@ -1,18 +1,19 @@
 import readlineSync from 'readline-sync';
-import greeting from './games/brain-games.js';
+import greeting from './brain-games.js';
 
-const runGame = (questions) => {
+const runGame = (game) => {
   const name = greeting();
-  console.log(questions.rules);
+  console.log(game.rules);
   let allAnswers = true;
-  for (let i = 0; i < 3; i += 1) {
-    console.log(`Question: ${questions.rounds[i].question}`);// Задаём вопрос
+  const numberOfRounds = 3;
+  for (let i = 0; i < numberOfRounds; i += 1) {
+    console.log(`Question: ${game.rounds[i].question}`);// Задаём вопрос
     const clientAnswer = readlineSync.question('Your answer: ');// Получаем от клиента ответ, записываем в переменную
-    if (String(questions.rounds[i].correctAnswer) === clientAnswer) {
+    if (game.rounds[i].correctAnswer === clientAnswer) {
       console.log('Correct!');
     } else {
       allAnswers = false;
-      console.log(`"${clientAnswer}" is wrong answer ;(. Correct answer was "${questions.rounds[i].correctAnswer}".`);
+      console.log(`"${clientAnswer}" is wrong answer ;(. Correct answer was "${game.rounds[i].correctAnswer}".`);
       console.log(`Let's try again, ${name}!`);
       break;
     }

@@ -1,4 +1,4 @@
-import clientName from '../cli.js';
+import clientName from './cli.js';
 
 const greeting = () => {
   console.log('Welcome to the Brain Games!');

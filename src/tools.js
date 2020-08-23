@@ -31,3 +31,10 @@ export const findDivisors = (number) => {
   }
   return divisors;
 };
+
+export const hideNumberInCollection = (collection, elem) => {
+  const numbers = collection;
+  const indexNumInArr = numbers.indexOf(elem);
+  numbers[indexNumInArr] = '..';
+  return numbers;
+};
