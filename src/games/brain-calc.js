@@ -2,7 +2,7 @@ import { getRandomNum, getRandomElem } from '../tools.js';
 
 const generateBrainCalc = () => {
   const roundData = {
-    rules: 'What is the result of the expression?',
+    rule: 'What is the result of the expression?',
     rounds: [],
   };
   for (let i = 0; i < 3; i += 1) {
@@ -11,20 +11,22 @@ const generateBrainCalc = () => {
     const firstNum = getRandomNum();// Первый операнд
     const secondNum = getRandomNum();// Второй операнд
     const operator = getRandomElem(operations);
-    round.question = `${firstNum} ${operator} ${secondNum}`;
+    let correctAnswer;
     switch (operator) {
       case '+':
-        round.correctAnswer = String(firstNum + secondNum);
+        correctAnswer = firstNum + secondNum;
         break;
       case '-':
-        round.correctAnswer = String(firstNum - secondNum);
+        correctAnswer = firstNum - secondNum;
         break;
       case '*':
-        round.correctAnswer = String(firstNum * secondNum);
+        correctAnswer = firstNum * secondNum;
         break;
       default:
         break;
     }
+    round.correctAnswer = String(correctAnswer);
+    round.question = `${firstNum} ${operator} ${secondNum}`;
     roundData.rounds.push(round);
   }
   return roundData;

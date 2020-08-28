@@ -2,7 +2,7 @@ import { getRandomElem, getRandomNum, hideNumberInCollection } from '../tools.js
 
 const generateBrainProgression = () => {
   const roundData = {
-    rules: 'What number is missing in the progression?',
+    rule: 'What number is missing in the progression?',
     rounds: [],
   };
 
@@ -10,13 +10,11 @@ const generateBrainProgression = () => {
     const round = {};
 
     const numbers = [];// Массив чисел
-    let firstElemInProgression = getRandomNum();/* Первое число для массива (чтобы каждый раз массив был с новыми числами) */
-    numbers.push(firstElemInProgression);// Добавили первое число в массив
+    const lengthOfNumbers = 10;
     const diffOfNums = getRandomNum();
 
-    for (let i = 1; i <= 10; i += 1) {
-      firstElemInProgression += diffOfNums;
-      numbers.push(firstElemInProgression);
+    for (let i = 0; i <= lengthOfNumbers; i += 1) {
+      numbers.push(i + diffOfNums * i);
     }
 
     const searchingElem = getRandomElem(numbers);
