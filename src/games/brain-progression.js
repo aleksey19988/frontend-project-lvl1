@@ -1,7 +1,7 @@
 import { getRandomElem, getRandomNum, hideNumberInCollection } from '../tools.js';
 
 const generateBrainProgression = () => {
-  const roundData = {
+  const gameData = {
     rule: 'What number is missing in the progression?',
     rounds: [],
   };
@@ -13,17 +13,17 @@ const generateBrainProgression = () => {
     const lengthOfNumbers = 10;
     const diffOfNums = getRandomNum();
 
-    for (let i = 0; i <= lengthOfNumbers; i += 1) {
-      numbers.push(i + diffOfNums * i);
+    for (let j = 0; j <= lengthOfNumbers; j += 1) {
+      numbers.push(j + diffOfNums * j);
     }
 
     const searchingElem = getRandomElem(numbers);
 
     round.question = hideNumberInCollection(numbers, searchingElem).join(', ');
     round.correctAnswer = String(searchingElem);
-    roundData.rounds.push(round);
+    gameData.rounds.push(round);
   }
-  return roundData;
+  return gameData;
 };// Функция для генерации данных раунда (списка чисел и правильного ответа)
 
 export default generateBrainProgression;

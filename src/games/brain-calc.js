@@ -1,7 +1,7 @@
 import { getRandomNum, getRandomElem } from '../tools.js';
 
 const generateBrainCalc = () => {
-  const roundData = {
+  const gameData = {
     rule: 'What is the result of the expression?',
     rounds: [],
   };
@@ -27,9 +27,9 @@ const generateBrainCalc = () => {
     }
     round.correctAnswer = String(correctAnswer);
     round.question = `${firstNum} ${operator} ${secondNum}`;
-    roundData.rounds.push(round);
+    gameData.rounds.push(round);
   }
-  return roundData;
+  return gameData;
 };// Функция для генерации данных раунда (операндов и правильного ответа)
 
 export default generateBrainCalc;

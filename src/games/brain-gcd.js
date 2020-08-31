@@ -1,7 +1,7 @@
 import { getRandomNum, getGreatestCommonDivisor } from '../tools.js';
 
 const generateBrainGcd = () => {
-  const roundData = {
+  const gameData = {
     rule: 'Find the greatest common divisor of given numbers.',
     rounds: [],
   };
@@ -11,10 +11,10 @@ const generateBrainGcd = () => {
     const secondNum = getRandomNum();// Второе число
 
     round.question = `${firstNum} ${secondNum}`;
-    round.correctAnswer = getGreatestCommonDivisor(firstNum, secondNum);/* Находим наибольший делитель */
-    roundData.rounds.push(round);
+    round.correctAnswer = getGreatestCommonDivisor(firstNum, secondNum);
+    gameData.rounds.push(round);
   }
-  return roundData;
+  return gameData;
 };// Функция для генерации данных раунда (чисел и правильного ответа)
 
 export default generateBrainGcd;

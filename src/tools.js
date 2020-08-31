@@ -1,8 +1,10 @@
 export const getRandomElem = (collection) => {
   const min = 0;
   const max = collection.length;
-  const getSerialNumberOfElem = (min, max) => Math.floor(Math.random() * (max - min) + min);/* Функция для получения порядкового номера скрываемого числа */
-  const randomElem = collection[getSerialNumberOfElem(min, max)];/* Получаем число, которое должен найти пользователь */
+  const getSerialNumberOfElem = (minimum, maximum) => {
+    Math.floor(Math.random() * (maximum - minimum) + minimum);
+  };
+  const randomElem = collection[getSerialNumberOfElem(min, max)];
   return randomElem;
 };
 
@@ -39,9 +41,11 @@ export const getGreatestCommonDivisor = (firstNum, secondNum) => {
 
   let commonDivisorsNoDuplicates = [];
   if (firstNum < secondNum) {
-    commonDivisorsNoDuplicates = secondDivisors.filter((divisor) => firstDivisors.includes(divisor));
+    commonDivisorsNoDuplicates = secondDivisors
+      .filter((divisor) => firstDivisors.includes(divisor));
   } else {
-    commonDivisorsNoDuplicates = firstDivisors.filter((divisor) => secondDivisors.includes(divisor));
+    commonDivisorsNoDuplicates = firstDivisors
+      .filter((divisor) => secondDivisors.includes(divisor));
   }// Составляем список общих неповторяющихся делителей
 
   return String(Math.max(...commonDivisorsNoDuplicates));
