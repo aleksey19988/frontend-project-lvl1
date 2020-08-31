@@ -8,8 +8,7 @@ const runGame = (game) => {
   const numberOfRounds = 3;
 
   for (let i = 0; i < numberOfRounds; i += 1) {
-    const roundData = game.round;
-    console.log(roundData);
+    const roundData = game.round();
     const { question: questionForClient, correctAnswer: corrAnswer } = roundData;
     console.log(`Question: ${questionForClient}`);// Задаём вопрос
 

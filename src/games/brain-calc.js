@@ -3,15 +3,17 @@ import { getRandomNum, getRandomElem } from '../tools.js';
 const generateBrainCalc = () => {
   const gameData = {
     rule: 'What is the result of the expression?',
-    rounds: [],
+    round: null,
   };
-  for (let i = 0; i < 3; i += 1) {
-    const round = {};
+
+  const generateRound = () => {
+    const roundData = {};
     const operations = ['+', '-', '*'];// Операторы
     const firstNum = getRandomNum();// Первый операнд
     const secondNum = getRandomNum();// Второй операнд
     const operator = getRandomElem(operations);
     let correctAnswer;
+
     switch (operator) {
       case '+':
         correctAnswer = firstNum + secondNum;
@@ -25,11 +27,16 @@ const generateBrainCalc = () => {
       default:
         break;
     }
-    round.correctAnswer = String(correctAnswer);
-    round.question = `${firstNum} ${operator} ${secondNum}`;
-    gameData.rounds.push(round);
-  }
+
+    roundData.correctAnswer = String(correctAnswer);
+    roundData.question = `${firstNum} ${operator} ${secondNum}`;
+
+    return roundData;
+  };
+
+  gameData.round = generateRound;
+
   return gameData;
-};// Функция для генерации данных раунда (операндов и правильного ответа)
+};
 
 export default generateBrainCalc;

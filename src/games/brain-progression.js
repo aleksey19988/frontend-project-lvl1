@@ -1,13 +1,20 @@
-import { getRandomElem, getRandomNum, hideNumberInCollection } from '../tools.js';
+import { getRandomElem, getRandomNum } from '../tools.js';
+
+const hideNumberInCollection = (collection, elem) => {
+  const numbers = collection;
+  const indexNumInArr = numbers.indexOf(elem);
+  numbers[indexNumInArr] = '..';
+  return numbers;
+};
 
 const generateBrainProgression = () => {
   const gameData = {
     rule: 'What number is missing in the progression?',
-    rounds: [],
+    round: null,
   };
 
-  for (let i = 0; i < 3; i += 1) {
-    const round = {};
+  const generateRound = () => {
+    const roundData = {};
 
     const numbers = [];// Массив чисел
     const lengthOfNumbers = 10;
@@ -18,11 +25,14 @@ const generateBrainProgression = () => {
     }
 
     const searchingElem = getRandomElem(numbers);
+    roundData.question = hideNumberInCollection(numbers, searchingElem).join(', ');
+    roundData.correctAnswer = String(searchingElem);
 
-    round.question = hideNumberInCollection(numbers, searchingElem).join(', ');
-    round.correctAnswer = String(searchingElem);
-    gameData.rounds.push(round);
-  }
+    return roundData;
+  };
+
+  gameData.round = generateRound;
+
   return gameData;
 };// Функция для генерации данных раунда (списка чисел и правильного ответа)
 
