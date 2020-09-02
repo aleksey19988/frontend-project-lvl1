@@ -1,16 +1,12 @@
 import { getRandomNum } from '../tools.js';
 
 const isPrimeNumber = (num) => {
-  let result;
-  for (let i = 3; i <= num; i += 1) {
-    if (i === num) {
-      result = true;
-    }
-    if (num % i === 0 || num <= 2) {
-      result = false;
+  for (let i = 2; i < num; i += 1) {
+    if (num % i === 0) {
+      return false;
     }
   }
-  return result;
+  return num > 1;
 };
 
 const generateBrainPrime = () => {

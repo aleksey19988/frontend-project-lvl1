@@ -11,7 +11,7 @@ const generateBrainEven = () => {
   const generateRound = () => {
     const roundData = {};
 
-    roundData.question = getRandomNum();// Получаем число от 0 до 99
+    roundData.question = getRandomNum();
     roundData.correctAnswer = isEven(roundData.question) ? 'yes' : 'no';
 
     return roundData;

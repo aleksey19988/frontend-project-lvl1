@@ -1,5 +1,7 @@
 import { getRandomElem, getRandomNum } from '../tools.js';
 
+const LENGTH_OF_ARRAY = 10;
+
 const hideNumberInCollection = (collection, elem) => {
   const numbers = collection;
   const indexNumInArr = numbers.indexOf(elem);
@@ -17,10 +19,9 @@ const generateBrainProgression = () => {
     const roundData = {};
 
     const numbers = [];// Массив чисел
-    const lengthOfNumbers = 10;
     const diffOfNums = getRandomNum();
 
-    for (let j = 0; j <= lengthOfNumbers; j += 1) {
+    for (let j = 0; j < LENGTH_OF_ARRAY; j += 1) {
       numbers.push(j + diffOfNums * j);
     }
 

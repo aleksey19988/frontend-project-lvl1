@@ -1,23 +1,23 @@
 import readlineSync from 'readline-sync';
-import clientName from './cli.js';
+import getClientName from './cli.js';
+
+const NUMBER_OF_ROUNDS = 3;
 
 const runGame = (game) => {
   console.log('Welcome to the Brain Games!');
-  const name = clientName();
+  const name = getClientName();
   console.log(game.rule);
-  const numberOfRounds = 3;
 
-  for (let i = 0; i < numberOfRounds; i += 1) {
+  for (let i = 0; i < NUMBER_OF_ROUNDS; i += 1) {
     const roundData = game.round();
-    const { question: questionForClient, correctAnswer: corrAnswer } = roundData;
-    console.log(`Question: ${questionForClient}`);// Задаём вопрос
+    console.log(`Question: ${roundData.question}`);// Задаём вопрос
 
     const clientAnswer = readlineSync.question('Your answer: ');// Получаем от клиента ответ, записываем в переменную
 
-    if (corrAnswer === clientAnswer) {
+    if (roundData.correctAnswer === clientAnswer) {
       console.log('Correct!');
     } else {
-      console.log(`"${clientAnswer}" is wrong answer ;(. Correct answer was "${corrAnswer}".`);
+      console.log(`"${clientAnswer}" is wrong answer ;(. Correct answer was "${roundData.correctAnswer}".`);
       console.log(`Let's try again, ${name}!`);
       return;
     }
