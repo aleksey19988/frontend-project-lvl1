@@ -7,9 +7,9 @@ Games to force yourself to think a little, escape from the routine and have fun
 
 ### Installation instructions:
 ```
-install
-publish
-npm link
+npm install
+make publish
+sudo npm link
 ```
 
 ## Brain even
