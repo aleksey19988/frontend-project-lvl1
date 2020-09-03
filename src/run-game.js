@@ -9,15 +9,15 @@ const runGame = (game) => {
   console.log(game.rule);
 
   for (let i = 0; i < NUMBER_OF_ROUNDS; i += 1) {
-    const roundData = game.round();
-    console.log(`Question: ${roundData.question}`);// Задаём вопрос
+    const { question, correctAnswer } = game.round();
+    console.log(`Question: ${question}`);// Задаём вопрос
 
     const clientAnswer = readlineSync.question('Your answer: ');// Получаем от клиента ответ, записываем в переменную
 
-    if (roundData.correctAnswer === clientAnswer) {
+    if (correctAnswer === clientAnswer) {
       console.log('Correct!');
     } else {
-      console.log(`"${clientAnswer}" is wrong answer ;(. Correct answer was "${roundData.correctAnswer}".`);
+      console.log(`"${clientAnswer}" is wrong answer ;(. Correct answer was "${correctAnswer}".`);
       console.log(`Let's try again, ${name}!`);
       return;
     }
