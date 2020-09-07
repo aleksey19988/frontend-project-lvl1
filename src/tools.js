@@ -1,13 +1,13 @@
+export const getRandomNum = (minimum, maximum) => {
+  const rand = minimum - 0.5 + Math.random() * (maximum - minimum + 1);
+  return Math.round(rand);
+};
+
 export const getRandomElem = (collection) => {
   const min = 0;
-  const max = collection.length;
+  const max = collection.length - 1;
 
-  const getSerialNumberOfElem = (minimum, maximum) => Math
-    .floor(Math
-      .random() * (maximum - minimum) + minimum);
-  const randomElem = collection[getSerialNumberOfElem(min, max)];
+  const randomElem = collection[getRandomNum(min, max)];
 
   return randomElem;
 };
-
-export const getRandomNum = () => Math.round(Math.random() * 100 + 1);

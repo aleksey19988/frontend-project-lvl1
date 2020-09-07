@@ -12,20 +12,20 @@ const isPrimeNumber = (num) => {
 const generateBrainPrime = () => {
   const gameData = {
     rule: 'Answer "yes" if given number is prime. Otherwise answer "no".',
-    round: null,
+    generateRoundData: null,
   };
 
   const generateRound = () => {
     const roundData = {};
 
-    const question = getRandomNum();
+    const question = getRandomNum(0, 100);
     roundData.question = question;
     roundData.correctAnswer = isPrimeNumber(question) ? 'yes' : 'no';
 
     return roundData;
   };
 
-  gameData.round = generateRound;
+  gameData.generateRoundData = generateRound;
 
   return gameData;
 };// Функция для генерации данных раунда (чисел и правильного ответа)

@@ -9,7 +9,7 @@ const runGame = (game) => {
   console.log(game.rule);
 
   for (let i = 0; i < NUMBER_OF_ROUNDS; i += 1) {
-    const { question, correctAnswer } = game.round();
+    const { question, correctAnswer } = game.generateRoundData();
     console.log(`Question: ${question}`);// Задаём вопрос
 
     const clientAnswer = readlineSync.question('Your answer: ');// Получаем от клиента ответ, записываем в переменную

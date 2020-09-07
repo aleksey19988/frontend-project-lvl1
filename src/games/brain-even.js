@@ -5,19 +5,19 @@ const isEven = (number) => number % 2 === 0;
 const generateBrainEven = () => {
   const gameData = {
     rule: 'Answer "yes" if the number is even, otherwise answer "no".',
-    round: null,
+    generateRoundData: null,
   };
 
   const generateRound = () => {
     const roundData = {};
 
-    roundData.question = getRandomNum();
+    roundData.question = getRandomNum(0, 100);
     roundData.correctAnswer = isEven(roundData.question) ? 'yes' : 'no';
 
     return roundData;
   };
 
-  gameData.round = generateRound;
+  gameData.generateRoundData = generateRound;
 
   return gameData;
 };

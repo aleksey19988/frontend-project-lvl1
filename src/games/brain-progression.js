@@ -12,14 +12,14 @@ const hideNumberInCollection = (collection, elem) => {
 const generateBrainProgression = () => {
   const gameData = {
     rule: 'What number is missing in the progression?',
-    round: null,
+    generateRoundData: null,
   };
 
   const generateRound = () => {
     const roundData = {};
 
     const numbers = [];// Массив чисел
-    const diffOfNums = getRandomNum();
+    const diffOfNums = getRandomNum(0, 100);
 
     for (let j = 0; j < LENGTH_OF_ARRAY; j += 1) {
       numbers.push(j + diffOfNums * j);
@@ -32,7 +32,7 @@ const generateBrainProgression = () => {
     return roundData;
   };
 
-  gameData.round = generateRound;
+  gameData.generateRoundData = generateRound;
 
   return gameData;
 };// Функция для генерации данных раунда (списка чисел и правильного ответа)

@@ -29,14 +29,14 @@ const getGreatestCommonDivisor = (firstNum, secondNum) => {
 const generateBrainGcd = () => {
   const gameData = {
     rule: 'Find the greatest common divisor of given numbers.',
-    round: null,
+    generateRoundData: null,
   };
 
   const generateRound = () => {
     const roundData = {};
 
-    const firstNum = getRandomNum();// Первое число
-    const secondNum = getRandomNum();// Второе число
+    const firstNum = getRandomNum(0, 100);// Первое число
+    const secondNum = getRandomNum(0, 100);// Второе число
 
     roundData.question = `${firstNum} ${secondNum}`;
     roundData.correctAnswer = getGreatestCommonDivisor(firstNum, secondNum);
@@ -44,7 +44,7 @@ const generateBrainGcd = () => {
     return roundData;
   };
 
-  gameData.round = generateRound;
+  gameData.generateRoundData = generateRound;
 
   return gameData;
 };// Функция для генерации данных раунда (чисел и правильного ответа)
