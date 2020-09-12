@@ -1,6 +1,6 @@
 export const getRandomNum = (minimum, maximum) => {
-  const rand = minimum - 0.5 + Math.random() * (maximum - minimum + 1);
-  return Math.round(rand);
+  const rand = minimum + Math.random() * (maximum + 1 - minimum);
+  return Math.floor(rand);
 };
 
 export const getRandomElem = (collection) => {

@@ -1,40 +1,34 @@
 import { getRandomElem, getRandomNum } from '../tools.js';
 
-const LENGTH_OF_ARRAY = 10;
+const LENGTH_OF_PROGRESSION = 10;
 
-const hideNumberInCollection = (collection, elem) => {
-  const numbers = collection;
-  const indexNumInArr = numbers.indexOf(elem);
-  numbers[indexNumInArr] = '..';
-  return numbers;
+const hideRandomElemInCollection = (collection, elem) => {
+  const result = collection;
+  result[collection.indexOf(elem)] = '..';
+
+  return result;
 };
 
 const generateBrainProgression = () => {
-  const gameData = {
+  return {
     rule: 'What number is missing in the progression?',
-    generateRoundData: null,
+    generateRound: () => {
+      const roundData = {};
+
+      const numbers = [];// Массив чисел
+      const diffOfNums = getRandomNum(0, 100);
+
+      for (let j = 0; j < LENGTH_OF_PROGRESSION; j += 1) {
+        numbers.push(j + diffOfNums * j);
+      }
+
+      const searchingElem = getRandomElem(numbers);
+      roundData.question = hideRandomElemInCollection(numbers, searchingElem).join(', ');
+      roundData.correctAnswer = String(searchingElem);
+
+      return roundData;
+    },
   };
-
-  const generateRound = () => {
-    const roundData = {};
-
-    const numbers = [];// Массив чисел
-    const diffOfNums = getRandomNum(0, 100);
-
-    for (let j = 0; j < LENGTH_OF_ARRAY; j += 1) {
-      numbers.push(j + diffOfNums * j);
-    }
-
-    const searchingElem = getRandomElem(numbers);
-    roundData.question = hideNumberInCollection(numbers, searchingElem).join(', ');
-    roundData.correctAnswer = String(searchingElem);
-
-    return roundData;
-  };
-
-  gameData.generateRoundData = generateRound;
-
-  return gameData;
-};// Функция для генерации данных раунда (списка чисел и правильного ответа)
+};
 
 export default generateBrainProgression;
