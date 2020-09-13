@@ -3,11 +3,11 @@ export const getRandomNum = (minimum, maximum) => {
   return Math.floor(rand);
 };
 
-export const getRandomElem = (collection) => {
+export const getRandomIndex = (collection) => {
   const min = 0;
   const max = collection.length - 1;
 
-  const randomElem = collection[getRandomNum(min, max)];
-
-  return randomElem;
+  return getRandomNum(min, max);
 };
+
+export const getRandomElem = (collection) => collection[getRandomIndex(collection)];

@@ -9,19 +9,15 @@ const isPrimeNumber = (num) => {
   return num > 1;
 };
 
-const generateBrainPrime = () => {
-  return {
-    rule: 'Answer "yes" if given number is prime. Otherwise answer "no".',
-    generateRoundData: () => {
-      const roundData = {};
+const generateBrainPrime = () => ({
+  rule: 'Answer "yes" if given number is prime. Otherwise answer "no".',
+  generateRoundData: () => {
+    const randomNum = getRandomNum(0, 100);
 
-      const question = getRandomNum(0, 100);
-      roundData.question = question;
-      roundData.correctAnswer = isPrimeNumber(question) ? 'yes' : 'no';
-
-      return roundData;
-    },
-  };
-};
-
+    return {
+      question: randomNum,
+      correctAnswer: isPrimeNumber(randomNum) ? 'yes' : 'no',
+    };
+  },
+});
 export default generateBrainPrime;

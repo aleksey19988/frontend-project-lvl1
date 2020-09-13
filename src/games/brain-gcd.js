@@ -14,33 +14,24 @@ const getGreatestCommonDivisor = (firstNum, secondNum) => {
   const firstDivisors = findDivisors(firstNum);// Делители первого числа
   const secondDivisors = findDivisors(secondNum);// Делители второго числа
 
-  let commonDivisorsNoDuplicates = [];
-  if (firstNum < secondNum) {
-    commonDivisorsNoDuplicates = secondDivisors
-      .filter((divisor) => firstDivisors.includes(divisor));
-  } else {
-    commonDivisorsNoDuplicates = firstDivisors
-      .filter((divisor) => secondDivisors.includes(divisor));
-  }// Составляем список общих неповторяющихся делителей
+  const commonDivisorsNoDuplicates = firstNum < secondNum
+    ? secondDivisors.filter((divisor) => firstDivisors.includes(divisor))
+    : firstDivisors.filter((divisor) => secondDivisors.includes(divisor));
 
   return String(Math.max(...commonDivisorsNoDuplicates));
 };
 
-const generateBrainGcd = () => {
-  return {
-    rule: 'Find the greatest common divisor of given numbers.',
-    generateRound: () => {
-      const roundData = {};
+const generateBrainGcd = () => ({
+  rule: 'Find the greatest common divisor of given numbers.',
+  generateRound: () => {
+    const firstNum = getRandomNum(0, 100);
+    const secondNum = getRandomNum(0, 100);
 
-      const firstNum = getRandomNum(0, 100);// Первое число
-      const secondNum = getRandomNum(0, 100);// Второе число
-
-      roundData.question = `${firstNum} ${secondNum}`;
-      roundData.correctAnswer = getGreatestCommonDivisor(firstNum, secondNum);
-
-      return roundData;
-    },
-  };
-};
+    return {
+      question: `${firstNum} ${secondNum}`,
+      correctAnswer: getGreatestCommonDivisor(firstNum, secondNum),
+    };
+  },
+});
 
 export default generateBrainGcd;

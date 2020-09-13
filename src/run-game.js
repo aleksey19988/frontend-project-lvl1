@@ -3,16 +3,17 @@ import getClientName from './cli.js';
 
 const NUMBER_OF_ROUNDS = 3;
 
-const runGame = (game) => {
+const runGame = (gameGenerator) => {
   console.log('Welcome to the Brain Games!');
   const name = getClientName();
+  const game = gameGenerator();
   console.log(game.rule);
 
   for (let i = 0; i < NUMBER_OF_ROUNDS; i += 1) {
     const { question, correctAnswer } = game.generateRound();
-    console.log(`Question: ${question}`);// Задаём вопрос
+    console.log(`Question: ${question}`);
 
-    const clientAnswer = readlineSync.question('Your answer: ');// Получаем от клиента ответ, записываем в переменную
+    const clientAnswer = readlineSync.question('Your answer: ');
 
     if (correctAnswer === clientAnswer) {
       console.log('Correct!');
