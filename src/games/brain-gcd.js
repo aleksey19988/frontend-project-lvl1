@@ -14,7 +14,10 @@ const getGreatestCommonDivisor = (firstNum, secondNum) => {
   const firstDivisors = findDivisors(firstNum);// Делители первого числа
   const secondDivisors = findDivisors(secondNum);// Делители второго числа
 
-  const getIntersectionOfArrays = (arr1, arr2) => arr1.filter((divisor) => arr2.includes(divisor));
+  const getIntersectionOfArrays = (arr1, arr2) => (arr1.length > arr2.length
+    ? arr1.filter((divisor) => arr2.includes(divisor))
+    : arr2.filter((divisor) => arr1.includes(divisor))
+  );
 
   return String(Math.max(...getIntersectionOfArrays(firstDivisors, secondDivisors)));
 };
