@@ -14,11 +14,9 @@ const getGreatestCommonDivisor = (firstNum, secondNum) => {
   const firstDivisors = findDivisors(firstNum);// Делители первого числа
   const secondDivisors = findDivisors(secondNum);// Делители второго числа
 
-  const commonDivisorsNoDuplicates = firstNum < secondNum
-    ? secondDivisors.filter((divisor) => firstDivisors.includes(divisor))
-    : firstDivisors.filter((divisor) => secondDivisors.includes(divisor));
+  const getIntersectionOfArrays = (arr1, arr2) => arr1.filter((divisor) => arr2.includes(divisor));
 
-  return String(Math.max(...commonDivisorsNoDuplicates));
+  return String(Math.max(...getIntersectionOfArrays(firstDivisors, secondDivisors)));
 };
 
 const generateBrainGcd = () => ({

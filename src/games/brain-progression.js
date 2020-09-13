@@ -27,8 +27,8 @@ const generateBrainProgression = () => ({
     const randomIndex = getRandomIndex(progression);
 
     return {
-      question: hideRandomElemInCollection(progression, randomIndex).join(', '),
       correctAnswer: String(progression[randomIndex]),
+      question: hideRandomElemInCollection(progression, randomIndex).join(', '),
     };
   },
 });

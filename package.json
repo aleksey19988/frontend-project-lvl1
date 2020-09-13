@@ -25,7 +25,6 @@
   },
   "homepage": "https://github.com/aleksey19988/frontend-project-lvl1#readme",
   "dependencies": {
-    "lodash": "^4.17.19",
     "readline-sync": "^1.4.10"
   },
   "devDependencies": {

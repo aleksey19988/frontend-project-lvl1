@@ -11,7 +11,7 @@ const isPrimeNumber = (num) => {
 
 const generateBrainPrime = () => ({
   rule: 'Answer "yes" if given number is prime. Otherwise answer "no".',
-  generateRoundData: () => {
+  generateRound: () => {
     const randomNum = getRandomNum(0, 100);
 
     return {
