@@ -2,4 +2,4 @@
 import runGame from '../src/run-game.js';
 import generateBrainPrime from '../src/games/brain-prime.js';
 
-runGame(generateBrainPrime());
+runGame(generateBrainPrime);
