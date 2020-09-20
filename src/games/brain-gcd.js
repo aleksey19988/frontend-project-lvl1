@@ -19,7 +19,7 @@ const getGreatestCommonDivisor = (firstNum, secondNum) => {
     : arr2.filter((divisor) => arr1.includes(divisor))
   );
 
-  return String(Math.max(...getIntersectionOfArrays(firstDivisors, secondDivisors)));
+  return Math.max(...getIntersectionOfArrays(firstDivisors, secondDivisors));
 };
 
 const generateBrainGcd = () => ({
@@ -30,7 +30,7 @@ const generateBrainGcd = () => ({
 
     return {
       question: `${firstNum} ${secondNum}`,
-      correctAnswer: getGreatestCommonDivisor(firstNum, secondNum),
+      correctAnswer: String(getGreatestCommonDivisor(firstNum, secondNum)),
     };
   },
 });
